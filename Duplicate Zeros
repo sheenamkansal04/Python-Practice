@@ -1,0 +1,56 @@
+#Duplicate the Zeros in a list
+
+
+#My Solution
+
+from collections.abc import Iterable
+
+def duplicate_zeros(donuts: list[int]) -> Iterable[int]:
+    # your code here
+    list1 = []
+    for i in range(len(donuts)):
+        if donuts[i] != 0:
+            list1.append(donuts[i])
+        else:
+            list1.append(0)
+            list1.append(0)
+            
+    return list1
+
+
+print("Example:")
+print(duplicate_zeros([1, 0, 2, 3, 0, 4, 5, 0]))
+
+assert duplicate_zeros([1, 0, 2, 3, 0, 4, 5, 0]) == [1, 0, 0, 2, 3, 0, 0, 4, 5, 0, 0]
+assert duplicate_zeros([0, 0, 0, 0]) == [0, 0, 0, 0, 0, 0, 0, 0]
+assert list(duplicate_zeros([0, 0, 0, 0])) == [0, 0, 0, 0, 0, 0, 0, 0]
+assert list(duplicate_zeros([100, 10, 0, 101, 1000])) == [100, 10, 0, 0, 101, 1000]
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
+
+
+# Best Clear Solution
+
+def duplicate_zeros(donuts: list) -> list:
+    # your code here
+    return sum([[i] if i else [0 , 0] for i in donuts], [])
+
+
+print("Example:")
+print(duplicate_zeros([1, 0, 2, 3, 0, 4, 5, 0]))
+
+assert duplicate_zeros([1, 0, 2, 3, 0, 4, 5, 0]) == [1, 0, 0, 2, 3, 0, 0, 4, 5, 0, 0]
+assert duplicate_zeros([0, 0, 0, 0]) == [0, 0, 0, 0, 0, 0, 0, 0]
+assert duplicate_zeros([100, 10, 0, 101, 1000]) == [100, 10, 0, 0, 101, 1000]
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
+#Speedy Solution
+
+for i in donuts:
+  if i==0:
+    yeild 0
+  yield i
